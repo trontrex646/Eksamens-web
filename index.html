@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gudrais Stāvvietas Pulkstenis</title>  
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Gudrais Stāvvietas Pulkstenis - Moderns digitāls risinājums ar mobilo lietotni automašīnu stāvvietu laika kontrolei. Vienkārša un ērta lietošana ar Bluetooth savienojumu.">
+  <meta name="keywords" content="stāvvietas pulkstenis, auto stāvvieta, digitāls pulkstenis, mobilā lietotne, bluetooth vadība, arduino, smart parking, parking timer">
+  <meta name="author" content="END">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gudrais Stāvvietas Pulkstenis">
+  <meta property="og:description" content="Moderns digitāls risinājums ar mobilo lietotni automašīnu stāvvietu laika kontrolei">
+  <meta property="og:image" content="assets/Logo.jpg">
+  <meta property="og:url" content="https://autostavietaspulkstenis.lv">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gudrais Stāvvietas Pulkstenis">
+  <meta name="twitter:description" content="Moderns digitāls risinājums ar mobilo lietotni automašīnu stāvvietu laika kontrolei">
+  <meta name="twitter:image" content="assets/Logo.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="assets/Logo.jpg">
+  <link rel="apple-touch-icon" href="assets/Logo.jpg">
+  <link rel="shortcut icon" type="image/jpg" href="assets/Logo.jpg">
+  <link rel="manifest" href="site.webmanifest">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <!-- Updated Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://api.emailjs.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+    img-src 'self' https: data:;
+    font-src 'self' https://fonts.gstatic.com;
+    connect-src 'self' https://api.emailjs.com data:;
+    frame-src 'self';
+    object-src 'none';
+    base-uri 'self';">
+  
+  <!-- Disable caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
+  <!-- Add protection script -->
+  <script src="js/protection.js" defer></script>
+  
+  <!-- Obfuscate the page content -->
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Encode page content
+          document.body.style.opacity = '0';
+          setTimeout(() => {
+              document.body.style.opacity = '1';
+          }, 0);
+      });
+  </script>
+</head>
+<body class="text-white font-['Inter']">
+
+  <!-- Wave Background -->
+  <div class="wave-bg"></div>
+
+  <!-- Edge Effects -->
+  <div class="edge-effect left"></div>
+  <div class="edge-effect right"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+
+  <!-- Side Designs -->
+  <div class="side-design top-left"></div>
+  <div class="side-design top-right"></div>
+  <div class="side-design bottom-left"></div>
+  <div class="side-design bottom-right"></div>
+
+  <!-- Header with logo -->
+  <header id="header" class="p-2 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <img src="assets/Logo.jpg" alt="Logo" class="logo h-10 w-auto">
+        </div>
+        
+        <div class="nav-links">
+          <a href="#home" data-translate="nav_home">Sākumlapa</a>
+          <a href="#lejupielade" data-translate="nav_download">Lejupielade</a>
+          <a href="#par-projektu" data-translate="nav_about">Par projektu</a>
+          <a href="#tehniskais-risinajums" data-translate="nav_tech">Tehniskais risinājums</a>
+          <a href="#kontakti" data-translate="nav_contact">Kontakti</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="language-selector">
+            <button class="language-btn">
+              <span class="current-lang">LV</span>
+            </button>
+            <div class="language-menu">
+              <button class="lang-option" data-lang="lv">Latviešu</button>
+              <button class="lang-option" data-lang="en">English</button>
+              <button class="lang-option" data-lang="de">Deutsch</button>
+              <button class="lang-option" data-lang="es">Español</button>
+            </div>
+          </div>
+
+          <button class="hamburger md:hidden">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="relative z-10">
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div class="content-container animate-fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 gradient-text" data-translate="home_title">🏠 Gudrais Stāvvietas Pulkstenis</h1>
+        <p class="text-lg md:text-xl mb-8" data-translate="home_description">Gudrais stāvvietas pulkstenis ir mūsdienīgs un ērti lietojams risinājums stāvvietas laika pārvaldībai. Ierīce sadarbojas ar intuitīvu mobilo lietotni, ļaujot lietotājiem ātri un precīzi iestatīt stāvēšanas laiku atbilstoši konkrētajai situācijai.</p>
+        <p class="text-lg md:text-xl mb-8" data-translate="home_description2">Ar vienu pieskārienu Tu vari nosūtīt laiku uz pulksteni, apskatīt iepriekš nosūtīto komandu vēsturi vai pielāgot iestatījumus – viss vienuviet!</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div class="feature-card">
+            <span class="text-2xl">✅</span>
+            <p data-translate="feature_bluetooth">Bluetooth savienojums</p>
+          </div>
+          <div class="feature-card">
+            <span class="text-2xl">✅</span>
+            <p data-translate="feature_time">Manuāla vai automātiska laika iestatīšana</p>
+          </div>
+          <div class="feature-card">
+            <span class="text-2xl">✅</span>
+            <p data-translate="feature_theme">Tumšais/gaišais režīms un valodas izvēle</p>
+          </div>
+          <div class="feature-card">
+            <span class="text-2xl">✅</span>
+            <p data-translate="feature_history">Komandu vēsture un iepriekšēju iestatītu komandu atkārtota izmantošana</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+    <div class="section-divider">
+        <div class="wave wave-top"></div>
+        <div class="wave wave-middle"></div>
+        <div class="wave wave-bottom"></div>
+    </div>
+
+    <section id="lejupielade" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div class="content-container animate-fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 gradient-text" data-translate="download_title">📲 Lejupielādējiet Mobilo Lietotni</h2>
+        <p class="text-lg md:text-xl mb-8" data-translate="download_description">Lai sāktu izmantot Gudro stāvvietas pulksteni, lejupielādē oficiālo mobilo lietotni. Tā ļaus Tev pilnībā pārvaldīt ierīci – jebkurā laikā, jebkurā vietā.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div class="platform-card">
+            <h3 class="text-2xl font-bold mb-4" data-translate="android_title">Android versija</h3>
+            <p class="mb-4" data-translate="android_description">Saderīga ar visām Android 8.0+ ierīcēm</p>
+            <a href="assets/app-debug.apk" download class="download-btn" data-translate="download_button">📥 Lejupielādēt</a>
+          </div>
+          <div class="platform-card">
+            <h3 class="text-2xl font-bold mb-4" data-translate="ios_title">iOS versija</h3>
+            <p class="mb-4" data-translate="ios_description">(Drīzumā pieejama) – saderība ar iOS</p>
+            <a href="#" class="download-btn" data-translate="download_button_ios">📥 Lejupielādēt iOS</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider">
+        <div class="wave wave-top"></div>
+        <div class="wave wave-middle"></div>
+        <div class="wave wave-bottom"></div>
+    </div>
+
+    <section id="par-projektu" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div class="content-container animate-fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 gradient-text" data-translate="about_title">🧠 Par Projektu</h2>
+        <p class="text-lg md:text-xl mb-8" data-translate="about_description">Šis projekts ir veidots ar mērķi modernizēt klasisko autostāvvietas pulksteni, piedāvājot digitālu alternatīvu ar ērtu vadību. Izmantojot Arduino UNO un HC-06 Bluetooth moduli, ierīce saņem komandas no mobilās lietotnes, parādot precīzi iestatītu laiku uz LCD ekrāna.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div class="feature-list">
+            <h3 class="text-2xl font-bold mb-4" data-translate="aboutFeatures">Mobilā lietotne nodrošina vairākas funkcijas:</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <span class="text-2xl mr-2">✅</span>
+                <span data-translate="feature1">Pulksteņa vadība reāllaikā</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-2">✅</span>
+                <span data-translate="feature2">Laika vēstures saglabāšana</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-2">✅</span>
+                <span data-translate="feature3">Komandu pielāgošana un nosūtīšana</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-2">✅</span>
+                <span data-translate="feature4">Pielāgojami iestatījumi (tēma, valoda, formāts)</span>
+              </li>
+            </ul>
+          </div>
+          <div class="use-cases">
+            <h3 class="text-2xl font-bold mb-4" data-translate="aboutUses">Šis risinājums ir īpaši noderīgs:</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <span class="text-2xl mr-2">📍</span>
+                <span data-translate="useCase1">vietās ar laika ierobežotu stāvēšanu</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-2">📍</span>
+                <span data-translate="useCase2">cilvēkiem ar regulāri mainīgu stāvēšanas laiku</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-2">📍</span>
+                <span data-translate="useCase3">ikvienam, kas novērtē modernu un lietotājam draudzīgu risinājumu</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </section>
+
+    <div class="section-divider">
+        <div class="wave wave-top"></div>
+        <div class="wave wave-middle"></div>
+        <div class="wave wave-bottom"></div>
+    </div>
+
+    <!-- Technical Section -->
+    <section id="tehniskais-risinajums" class="text-center py-20 fade-in">
+      <div class="content-container max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-6 gradient-text" data-translate="tech_title">Tehniskais risinājums</h2>
+        <p class="text-xl font-light mb-12 max-w-2xl mx-auto" data-translate="tech_subtitle">
+          Gudrais stāvvietas pulkstenis ir veidots, izmantojot Arduino UNO mikrokontrolieri un HC-06 Bluetooth moduli, kas nodrošina stabilu bezvadu savienojumu ar mobilo lietotni.
+        </p>
+        
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-icon">🔧</div>
+            <h3 class="text-xl font-bold mb-4" data-translate="hardware_title">Aparatūra</h3>
+            <ul class="text-left space-y-2">
+              <li data-translate="hardware_1">• Arduino UNO mikrokontrolieris</li>
+              <li data-translate="hardware_2">• HC-06 Bluetooth modulis</li>
+              <li data-translate="hardware_3">• LCD 16x2 displejs</li>
+              <li data-translate="hardware_4">• Barošanas bloks</li>
+            </ul>
+          </div>
+          
+          <div class="tech-card">
+            <div class="tech-icon">💻</div>
+            <h3 class="text-xl font-bold mb-4" data-translate="software_title">Programmatūra</h3>
+            <ul class="text-left space-y-2">
+              <li data-translate="software_1">• Mobilā lietotne (Android Studio)</li>
+              <li data-translate="software_2">• Bluetooth savienojums</li>
+              <li data-translate="software_3">• Laika vēstures saglabāšana</li>
+              <li data-translate="software_4">• Konfigurējami iestatījumi</li>
+            </ul>
+          </div>
+          
+          <div class="tech-card">
+            <div class="tech-icon">⚙️</div>
+            <h3 class="text-xl font-bold mb-4" data-translate="operation_title">Darbības princips</h3>
+            <ul class="text-left space-y-2">
+              <li data-translate="operation_1">• Lietotāja ievade viedtālrunī</li>
+              <li data-translate="operation_2">• Komandas pārraide caur Bluetooth</li>
+              <li data-translate="operation_3">• Datu apstrāde Arduino</li>
+              <li data-translate="operation_4">• Laika attēlošana LCD ekrānā</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </section>
+
+    <div class="section-divider">
+        <div class="wave wave-top"></div>
+        <div class="wave wave-middle"></div>
+        <div class="wave wave-bottom"></div>
+    </div>
+
+  <!-- Contact Section -->
+    <section id="kontakti" class="text-center py-20 fade-in">
+      <div class="content-container max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold mb-6 gradient-text" data-translate="contactTitle">Kontakti</h2>
+        <p class="text-xl font-light mb-12 max-w-2xl mx-auto" data-translate="contactSubtitle">
+          Ja Tev ir jautājumi par ierīces lietošanu, kļūdu novēršanu vai vēlies dalīties ar ieteikumiem – droši sazinies ar mums!
+        </p>
+        
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <input type="text" id="fullName" name="fullName" data-translate-placeholder="contact-name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" data-translate-placeholder="contact-email" required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="subject" name="subject" data-translate-placeholder="contact-subject" required>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" data-translate-placeholder="contact-message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span class="btn-content" data-translate="contact-send">Sūtīt Ziņojumu</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-info mt-16">
+          <ul class="text-xl space-y-4">
+            <li>E-pasts: tabspoongaming@gmail.com</li>
+            <li>Tālrunis: +371 28 693 411</li>
+            <li>Adrese: Cēsis, Cēsu novads, Latvija</li>
+    </ul>
+        </div>
+      </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white p-6 text-center">
+    <p>&copy; 2024 Gudrais Stāvvietas Pulkstenis</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Force scroll to top and initialize animations
+    window.onload = function() {
+      // Reset scroll position
+      window.scrollTo(0, 0);
+      
+      // Fade in body
+      document.body.style.opacity = '0';
+      requestAnimationFrame(() => {
+        document.body.style.opacity = '1';
+        document.body.style.transition = 'opacity 0.8s ease';
+      });
+
+      // Initialize first section
+      const firstSection = document.querySelector('section');
+      if (firstSection) {
+        setTimeout(() => {
+          firstSection.classList.add('visible');
+        }, 100);
+      }
+    }
+
+    // Prevent scroll memory
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Enhanced scroll handling with Intersection Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px',
+      threshold: 0.1
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Animate children with staggered delay
+          const elements = entry.target.querySelectorAll('.tech-card, .feature-list li, .use-cases li');
+          elements.forEach((el, index) => {
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, 200 * (index + 1));
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Smooth scroll with offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Enhanced wave effects
+    const waves = document.querySelectorAll('.side-design');
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX / window.innerWidth;
+      mouseY = e.clientY / window.innerHeight;
+      
+      requestAnimationFrame(() => {
+        waves.forEach(wave => {
+          const rect = wave.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const distanceX = (e.clientX - centerX) / window.innerWidth;
+          const distanceY = (e.clientY - centerY) / window.innerHeight;
+          
+          wave.style.transform = `translate(${distanceX * 20}px, ${distanceY * 20}px) scale(1.1)`;
+        });
+      });
+    });
+
+    // Header hide on scroll
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+      const header = document.getElementById('header');
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateHeader();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Edge effects
+    function handleMouseMove(e) {
+      const leftEdge = document.querySelector('.edge-effect.left');
+      const rightEdge = document.querySelector('.edge-effect.right');
+      const threshold = 100; // pixels from edge
+
+      if (e.clientX <= threshold) {
+        leftEdge.classList.add('active');
+        const opacity = 1 - (e.clientX / threshold);
+        leftEdge.style.opacity = opacity;
+      } else {
+        leftEdge.classList.remove('active');
+      }
+
+      if (e.clientX >= window.innerWidth - threshold) {
+        rightEdge.classList.add('active');
+        const opacity = 1 - ((window.innerWidth - e.clientX) / threshold);
+        rightEdge.style.opacity = opacity;
+      } else {
+        rightEdge.classList.remove('active');
+      }
+    }
+
+    document.addEventListener('mousemove', handleMouseMove);
+
+    // EmailJS configuration
+    (function() {
+      try {
+        emailjs.init("bbY8Z1C5gWMRod8MM");
+        console.log('EmailJS initialized successfully');
+      } catch (error) {
+        console.error('EmailJS initialization error:', error);
+      }
+    })();
+
+    // Contact form submission with improved error handling
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      console.log('Form submission started');
+      
+      const submitBtn = this.querySelector('.submit-btn');
+      const btnText = submitBtn.querySelector('.btn-content');
+      submitBtn.disabled = true;
+      btnText.textContent = 'Sūta...';
+      
+      const templateParams = {
+        to_email: 'tabspoongaming@gmail.com',
+        name: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        title: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        reply_to: document.getElementById('email').value
+      };
+
+      console.log('Sending email with params:', templateParams);
+
+      emailjs.send('service_fhy0v2p', 'template_g9tg0fc', templateParams)
+        .then(function(response) {
+          console.log('EmailJS SUCCESS:', response);
+          alert('Ziņojums nosūtīts veiksmīgi!');
+          document.getElementById('contactForm').reset();
+        })
+        .catch(function(error) {
+          console.error('EmailJS FAILED:', error);
+          alert('Kļūda sūtot ziņojumu. Detaļas konsolē.');
+        })
+        .finally(function() {
+          submitBtn.disabled = false;
+          btnText.textContent = 'Sūtīt Ziņojumu';
+          console.log('Email sending process completed');
+        });
+    });
+
+    // Translations object
+    const translations = {
+      'lv': {
+        // Navigation
+        'nav_home': 'Sākumlapa',
+        'nav_download': 'Lejupielade',
+        'nav_about': 'Par projektu',
+        'nav_tech': 'Tehniskais risinājums',
+        'nav_contact': 'Kontakti',
+        
+        // Home section
+        'home_title': '🏠 Gudrais Stāvvietas Pulkstenis',
+        'home_description': 'Gudrais stāvvietas pulkstenis ir mūsdienīgs un ērti lietojams risinājums stāvvietas laika pārvaldībai. Ierīce sadarbojas ar intuitīvu mobilo lietotni, ļaujot lietotājiem ātri un precīzi iestatīt stāvēšanas laiku atbilstoši konkrētajai situācijai.',
+        'home_description2': 'Ar vienu pieskārienu Tu vari nosūtīt laiku uz pulksteni, apskatīt iepriekš nosūtīto komandu vēsturi vai pielāgot iestatījumus – viss vienuviet!',
+        
+        // Features
+        'feature_bluetooth': 'Bluetooth savienojums',
+        'feature_time': 'Manuāla vai automātiska laika iestatīšana',
+        'feature_theme': 'Tumšais/gaišais režīms un valodas izvēle',
+        'feature_history': 'Komandu vēsture un iepriekšēju iestatītu komandu atkārtota izmantošana',
+        
+        // Download section
+        'download_title': '📲 Lejupielādējiet Mobilo Lietotni',
+        'download_description': 'Lai sāktu izmantot Gudro stāvvietas pulksteni, lejupielādē oficiālo mobilo lietotni. Tā ļaus Tev pilnībā pārvaldīt ierīci – jebkurā laikā, jebkurā vietā.',
+        'android_title': 'Android versija',
+        'android_description': 'Saderīga ar visām Android 8.0+ ierīcēm',
+        'ios_title': 'iOS versija',
+        'ios_description': '(Drīzumā pieejama) – saderība ar iOS',
+        'download_button': '📥 Lejupielādēt',
+        'download_button_ios': '📥 Lejupielādēt iOS',
+        
+        // Technical section
+        'tech_title': 'Tehniskais risinājums',
+        'tech_subtitle': 'Gudrais stāvvietas pulkstenis ir veidots, izmantojot Arduino UNO mikrokontrolieri un HC-06 Bluetooth moduli, kas nodrošina stabilu bezvadu savienojumu ar mobilo lietotni.',
+        'hardware_title': 'Aparatūra',
+        'hardware_1': '• Arduino UNO mikrokontrolieris',
+        'hardware_2': '• HC-06 Bluetooth modulis',
+        'hardware_3': '• LCD 16x2 displejs',
+        'hardware_4': '• Barošanas bloks',
+        'software_title': 'Programmatūra',
+        'software_1': '• Mobilā lietotne (Android Studio)',
+        'software_2': '• Bluetooth savienojums',
+        'software_3': '• Laika vēstures saglabāšana',
+        'software_4': '• Konfigurējami iestatījumi',
+        'operation_title': 'Darbības princips',
+        'operation_1': '• Lietotāja ievade viedtālrunī',
+        'operation_2': '• Komandas pārraide caur Bluetooth',
+        'operation_3': '• Datu apstrāde Arduino',
+        'operation_4': '• Laika attēlošana LCD ekrānā',
+
+        // About section
+        'about_title': '🧠 Par Projektu',
+        'about_description': 'Šis projekts ir veidots ar mērķi modernizēt klasisko autostāvvietas pulksteni, piedāvājot digitālu alternatīvu ar ērtu vadību. Izmantojot Arduino UNO un HC-06 Bluetooth moduli, ierīce saņem komandas no mobilās lietotnes, parādot precīzi iestatītu laiku uz LCD ekrāna.',
+        'aboutFeatures': 'Mobilā lietotne nodrošina vairākas funkcijas:',
+        'feature1': 'Pulksteņa vadība reāllaikā',
+        'feature2': 'Laika vēstures saglabāšana',
+        'feature3': 'Komandu pielāgošana un nosūtīšana',
+        'feature4': 'Pielāgojami iestatījumi (tēma, valoda, formāts)',
+        'aboutUses': 'Šis risinājums ir īpaši noderīgs:',
+        'useCase1': 'vietās ar laika ierobežotu stāvēšanu',
+        'useCase2': 'cilvēkiem ar regulāri mainīgu stāvēšanas laiku',
+        'useCase3': 'ikvienam, kas novērtē modernu un lietotājam draudzīgu risinājumu',
+
+        // Contact section
+        'contactTitle': 'Kontakti',
+        'contactSubtitle': 'Ja Tev ir jautājumi par ierīces lietošanu, kļūdu novēršanu vai vēlies dalīties ar ieteikumiem – droši sazinies ar mums!',
+        'contact-name': 'Vārds, Uzvārds',
+        'contact-email': 'E-pasts',
+        'contact-subject': 'Tēma',
+        'contact-message': 'Ziņojums',
+        'contact-send': 'Sūtīt Ziņojumu'
+      },
+      'en': {
+        // Navigation
+        'nav_home': 'Home',
+        'nav_download': 'Download',
+        'nav_about': 'About',
+        'nav_tech': 'Technical Solution',
+        'nav_contact': 'Contact',
+        
+        // Home section
+        'home_title': '🏠 Smart Parking Clock',
+        'home_description': 'The Smart Parking Clock is a modern and user-friendly solution for parking time management. The device works with an intuitive mobile app, allowing users to quickly and accurately set parking time according to the specific situation.',
+        'home_description2': 'With one touch, you can send time to the clock, view command history, or adjust settings – all in one place!',
+        
+        // Features
+        'feature_bluetooth': 'Bluetooth connection',
+        'feature_time': 'Manual or automatic time setting',
+        'feature_theme': 'Dark/Light mode and language selection',
+        'feature_history': 'Command history and reuse of previously set commands',
+        
+        // Download section
+        'download_title': '📲 Download Mobile App',
+        'download_description': 'To start using the Smart Parking Clock, download the official mobile app. It allows you to fully control the device – anytime, anywhere.',
+        'android_title': 'Android version',
+        'android_description': 'Compatible with all Android 8.0+ devices',
+        'ios_title': 'iOS version',
+        'ios_description': '(Coming soon) – iOS compatibility',
+        'download_button': '📥 Download',
+        'download_button_ios': '📥 Download iOS',
+        
+        // Technical section
+        'tech_title': 'Technical Solution',
+        'tech_subtitle': 'The Smart Parking Clock is built using an Arduino UNO microcontroller and HC-06 Bluetooth module, providing stable wireless connection with the mobile app.',
+        'hardware_title': 'Hardware',
+        'hardware_1': '• Arduino UNO microcontroller',
+        'hardware_2': '• HC-06 Bluetooth module',
+        'hardware_3': '• LCD 16x2 display',
+        'hardware_4': '• Power supply unit',
+        'software_title': 'Software',
+        'software_1': '• Mobile app (Android Studio)',
+        'software_2': '• Bluetooth connection',
+        'software_3': '• Time history storage',
+        'software_4': '• Configurable settings',
+        'operation_title': 'Operation Principle',
+        'operation_1': '• User input on smartphone',
+        'operation_2': '• Command transmission via Bluetooth',
+        'operation_3': '• Data processing in Arduino',
+        'operation_4': '• Time display on LCD screen',
+
+        // About section
+        'about_title': '🧠 About Project',
+        'about_description': 'This project aims to modernize the classic parking clock by offering a digital alternative with convenient control. Using Arduino UNO and HC-06 Bluetooth module, the device receives commands from the mobile app, displaying precisely set time on the LCD screen.',
+        'aboutFeatures': 'The mobile app provides several features:',
+        'feature1': 'Real-time clock control',
+        'feature2': 'Time history storage',
+        'feature3': 'Command customization and sending',
+        'feature4': 'Configurable settings (theme, language, format)',
+        'aboutUses': 'This solution is particularly useful for:',
+        'useCase1': 'areas with time-limited parking',
+        'useCase2': 'people with regularly changing parking times',
+        'useCase3': 'anyone who appreciates a modern and user-friendly solution',
+
+        // Contact section
+        'contactTitle': 'Contact',
+        'contactSubtitle': 'If you have questions about using the device, troubleshooting, or want to share suggestions - feel free to contact us!',
+        'contact-name': 'Full Name',
+        'contact-email': 'Email',
+        'contact-subject': 'Subject',
+        'contact-message': 'Message',
+        'contact-send': 'Send Message'
+      },
+      'de': {
+        // Navigation
+        'nav_home': 'Startseite',
+        'nav_download': 'Herunterladen',
+        'nav_about': 'Über uns',
+        'nav_tech': 'Technische Lösung',
+        'nav_contact': 'Kontakt',
+
+        // Home section
+        'home_title': '🏠 Intelligente Parkuhr',
+        'home_description': 'Die intelligente Parkuhr ist eine moderne und benutzerfreundliche Lösung für die Verwaltung der Parkzeit. Das Gerät arbeitet mit einer intuitiven mobilen App, die es den Benutzern ermöglicht, die Parkzeit schnell und genau entsprechend der spezifischen Situation einzustellen.',
+        'home_description2': 'Mit einer Berührung können Sie die Zeit an die Uhr senden, den Befehlsverlauf anzeigen oder Einstellungen anpassen – alles an einem Ort!',
+
+        // Features
+        'feature_bluetooth': 'Bluetooth-Verbindung',
+        'feature_time': 'Manuelle oder automatische Zeiteinstellung',
+        'feature_theme': 'Dunkel/Hell-Modus und Sprachauswahl',
+        'feature_history': 'Befehlsverlauf und Wiederverwendung zuvor eingestellter Befehle',
+
+        // Download section
+        'download_title': '📲 Mobile App Herunterladen',
+        'download_description': 'Um die intelligente Parkuhr zu nutzen, laden Sie die offizielle mobile App herunter. Sie ermöglicht Ihnen die vollständige Kontrolle über das Gerät – jederzeit und überall.',
+        'android_title': 'Android-Version',
+        'android_description': 'Kompatibel mit allen Android 8.0+ Geräten',
+        'ios_title': 'iOS-Version',
+        'ios_description': '(Demnächst verfügbar) – iOS-Kompatibilität',
+        'download_button': '📥 Herunterladen',
+        'download_button_ios': '📥 iOS Herunterladen',
+
+        // Technical section
+        'tech_title': 'Technische Lösung',
+        'tech_subtitle': 'Die intelligente Parkuhr wird mit einem Arduino UNO-Mikrocontroller und HC-06 Bluetooth-Modul gebaut und bietet eine stabile drahtlose Verbindung mit der mobilen App.',
+        'hardware_title': 'Hardware',
+        'hardware_1': '• Arduino UNO Mikrocontroller',
+        'hardware_2': '• HC-06 Bluetooth-Modul',
+        'hardware_3': '• LCD 16x2 Display',
+        'hardware_4': '• Netzteil',
+        'software_title': 'Software',
+        'software_1': '• Mobile App (Android Studio)',
+        'software_2': '• Bluetooth-Verbindung',
+        'software_3': '• Zeitspeicherung',
+        'software_4': '• Konfigurierbare Einstellungen',
+        'operation_title': 'Funktionsprinzip',
+        'operation_1': '• Benutzereingabe auf dem Smartphone',
+        'operation_2': '• Befehlsübertragung über Bluetooth',
+        'operation_3': '• Datenverarbeitung in Arduino',
+        'operation_4': '• Zeitanzeige auf LCD-Display',
+
+        // About section
+        'about_title': '🧠 Über das Projekt',
+        'about_description': 'Dieses Projekt zielt darauf ab, die klassische Parkuhr durch eine digitale Alternative mit komfortabler Steuerung zu modernisieren. Mit Arduino UNO und HC-06 Bluetooth-Modul empfängt das Gerät Befehle von der mobilen App und zeigt die präzise eingestellte Zeit auf dem LCD-Display an.',
+        'aboutFeatures': 'Die mobile App bietet mehrere Funktionen:',
+        'feature1': 'Echtzeit-Uhrensteuerung',
+        'feature2': 'Zeitspeicherung',
+        'feature3': 'Befehlsanpassung und -sendung',
+        'feature4': 'Konfigurierbare Einstellungen (Theme, Sprache, Format)',
+        'aboutUses': 'Diese Lösung ist besonders nützlich für:',
+        'useCase1': 'Bereiche mit zeitlich begrenztem Parken',
+        'useCase2': 'Menschen mit regelmäßig wechselnden Parkzeiten',
+        'useCase3': 'Jeden, der eine moderne und benutzerfreundliche Lösung schätzt',
+
+        // Contact section
+        'contactTitle': 'Kontakt',
+        'contactSubtitle': 'Bei Fragen zur Gerätenutzung, Fehlerbehebung oder Verbesserungsvorschlägen - kontaktieren Sie uns gerne!',
+        'contact-name': 'Vollständiger Name',
+        'contact-email': 'E-Mail',
+        'contact-subject': 'Betreff',
+        'contact-message': 'Nachricht',
+        'contact-send': 'Nachricht senden'
+      },
+      'es': {
+        // Navigation
+        'nav_home': 'Inicio',
+        'nav_download': 'Descargar',
+        'nav_about': 'Sobre nosotros',
+        'nav_tech': 'Solución Técnica',
+        'nav_contact': 'Contacto',
+
+        // Home section
+        'home_title': '🏠 Reloj de Estacionamiento Inteligente',
+        'home_description': 'El Reloj de Estacionamiento Inteligente es una solución moderna y fácil de usar para la gestión del tiempo de estacionamiento. El dispositivo funciona con una aplicación móvil intuitiva, permitiendo a los usuarios configurar el tiempo de estacionamiento de manera rápida y precisa según la situación específica.',
+        'home_description2': '¡Con un toque, puede enviar tiempo al reloj, ver el historial de comandos o ajustar la configuración, todo en un solo lugar!',
+
+        // Features
+        'feature_bluetooth': 'Conexión Bluetooth',
+        'feature_time': 'Configuración manual o automática del tiempo',
+        'feature_theme': 'Modo oscuro/claro y selección de idioma',
+        'feature_history': 'Historial de comandos y reutilización de comandos previamente configurados',
+
+        // Download section
+        'download_title': '📲 Descargar Aplicación Móvil',
+        'download_description': 'Para comenzar a usar el Reloj de Estacionamiento Inteligente, descargue la aplicación móvil oficial. Le permite controlar completamente el dispositivo, en cualquier momento y lugar.',
+        'android_title': 'Versión Android',
+        'android_description': 'Compatible con todos los dispositivos Android 8.0+',
+        'ios_title': 'Versión iOS',
+        'ios_description': '(Próximamente) – Compatibilidad con iOS',
+        'download_button': '📥 Descargar',
+        'download_button_ios': '📥 Descargar iOS',
+
+        // Technical section
+        'tech_title': 'Solución Técnica',
+        'tech_subtitle': 'El Reloj de Estacionamiento Inteligente está construido usando un microcontrolador Arduino UNO y módulo Bluetooth HC-06, proporcionando una conexión inalámbrica estable con la aplicación móvil.',
+        'hardware_title': 'Hardware',
+        'hardware_1': '• Microcontrolador Arduino UNO',
+        'hardware_2': '• Módulo Bluetooth HC-06',
+        'hardware_3': '• Pantalla LCD 16x2',
+        'hardware_4': '• Unidad de alimentación',
+        'software_title': 'Software',
+        'software_1': '• Aplicación móvil (Android Studio)',
+        'software_2': '• Conexión Bluetooth',
+        'software_3': '• Almacenamiento del historial de tiempo',
+        'software_4': '• Configuraciones ajustables',
+        'operation_title': 'Principio de Operación',
+        'operation_1': '• Entrada de usuario en smartphone',
+        'operation_2': '• Transmisión de comandos vía Bluetooth',
+        'operation_3': '• Procesamiento de datos en Arduino',
+        'operation_4': '• Visualización de tiempo en pantalla LCD',
+
+        // About section
+        'about_title': '🧠 Sobre el Proyecto',
+        'about_description': 'Este proyecto busca modernizar el reloj de estacionamiento clásico ofreciendo una alternativa digital con control conveniente. Usando Arduino UNO y el módulo Bluetooth HC-06, el dispositivo recibe comandos desde la aplicación móvil, mostrando el tiempo configurado con precisión en la pantalla LCD.',
+        'aboutFeatures': 'La aplicación móvil ofrece varias funciones:',
+        'feature1': 'Control del reloj en tiempo real',
+        'feature2': 'Almacenamiento del historial de tiempo',
+        'feature3': 'Personalización y envío de comandos',
+        'feature4': 'Configuraciones ajustables (tema, idioma, formato)',
+        'aboutUses': 'Esta solución es especialmente útil para:',
+        'useCase1': 'áreas con estacionamiento limitado por tiempo',
+        'useCase2': 'personas con horarios de estacionamiento que cambian regularmente',
+        'useCase3': 'cualquiera que aprecie una solución moderna y fácil de usar',
+
+        // Contact section
+        'contactTitle': 'Contacto',
+        'contactSubtitle': '¡Si tienes preguntas sobre el uso del dispositivo, resolución de problemas o quieres compartir sugerencias - no dudes en contactarnos!',
+        'contact-name': 'Nombre Completo',
+        'contact-email': 'Correo Electrónico',
+        'contact-subject': 'Asunto',
+        'contact-message': 'Mensaje',
+        'contact-send': 'Enviar Mensaje'
+      }
+    };
+
+    // Mobile Navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize mobile navigation
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      const body = document.body;
+
+      function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        body.classList.toggle('menu-open');
+      }
+
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (navLinks.classList.contains('active') && !e.target.closest('.nav-links') && !e.target.closest('.hamburger')) {
+          toggleMenu();
+        }
+      });
+
+      // Close menu when clicking on a link
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('active')) {
+            toggleMenu();
+          }
+        });
+      });
+
+      // Language switcher initialization
+      const languageBtn = document.querySelector('.language-btn');
+      const languageMenu = document.querySelector('.language-menu');
+      const languageOptions = document.querySelectorAll('.lang-option');
+
+      languageBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        languageMenu.classList.toggle('show');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.language-selector')) {
+          languageMenu.classList.remove('show');
+        }
+      });
+
+      languageOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+          const lang = e.target.dataset.lang;
+          changeLanguage(lang);
+        });
+      });
+
+      // Load saved language preference
+      const savedLang = localStorage.getItem('preferredLanguage') || 'lv';
+      changeLanguage(savedLang);
+    });
+
+    // Language switching function
+    function changeLanguage(lang) {
+      // Update language button text
+      document.querySelector('.current-lang').textContent = lang.toUpperCase();
+      
+      // Update all elements with data-translate attribute
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      // Update all elements with data-translate-placeholder attribute
+      document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-translate-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          element.placeholder = translations[lang][key];
+        }
+      });
+
+      // Update all elements with data-translate-value attribute
+      document.querySelectorAll('[data-translate-value]').forEach(element => {
+        const key = element.getAttribute('data-translate-value');
+        if (translations[lang] && translations[lang][key]) {
+          element.value = translations[lang][key];
+        }
+      });
+
+      // Save language preference
+      localStorage.setItem('preferredLanguage', lang);
+      
+      // Close language menu
+      document.querySelector('.language-menu').classList.remove('show');
+    }
+  </script>
+
+</body>
+</html>
