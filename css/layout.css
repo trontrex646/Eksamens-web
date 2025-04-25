@@ -1,0 +1,133 @@
+/* Header Layout */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: transform var(--transition-speed) ease;
+  background: var(--color-background-light);
+  backdrop-filter: blur(10px);
+}
+
+/* Section Layout */
+section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  background: var(--color-background) !important;
+  z-index: 2;
+}
+
+/* Wave Background */
+.wave-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(96, 165, 250, 0.008) 0%, transparent 70%),
+    radial-gradient(ellipse at 80% 80%, rgba(96, 165, 250, 0.008) 0%, transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(96, 165, 250, 0.005) 0%, transparent 80%),
+    radial-gradient(ellipse at 80% 20%, rgba(96, 165, 250, 0.008) 0%, transparent 70%),
+    radial-gradient(ellipse at 20% 80%, rgba(96, 165, 250, 0.008) 0%, transparent 70%);
+  background-color: var(--color-background);
+  animation: waveBackground 30s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Section Dividers */
+.section-divider {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+  z-index: 5;
+  margin: -40px 0;
+  pointer-events: none;
+  background: transparent;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Content Container */
+.content-container {
+  position: relative;
+  background: var(--color-background-light);
+  border-radius: var(--border-radius);
+  padding: 3rem;
+  margin: 2rem;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  max-width: 1200px;
+  width: 100%;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  z-index: 10;
+  isolation: isolate;
+}
+
+/* Grid Layouts */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Navigation Layout */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+/* Edge Effects */
+.edge-effect {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+  pointer-events: none;
+}
+
+.edge-effect.left {
+  left: 0;
+  background: linear-gradient(90deg, rgba(0, 30, 60, 0.3), transparent);
+}
+
+.edge-effect.right {
+  right: 0;
+  background: linear-gradient(-90deg, rgba(0, 30, 60, 0.3), transparent);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .content-container {
+    padding: 2rem;
+    margin: 1rem;
+  }
+} 
